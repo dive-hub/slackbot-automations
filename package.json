@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@slack/bolt": "^3.18.0"
+    "@slack/bolt": "^3.18.0",
+    "dotenv": "^16.4.5"
   }
 }

@@ -1,4 +1,5 @@
 const { App } = require('@slack/bolt');
+require('dotenv').config();
 
 // Initialize your app with your bot token and signing secret
 const app = new App({
@@ -6,24 +7,22 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   socketMode: true,
   appToken: process.env.SLACK_APP_TOKEN,
-  // Socket Mode doesn't listen on a port, but in case you want your app to respond to OAuth,
-  // you still need to listen on some port!
   port: process.env.PORT || 3000
 });
 
-// Listen for the 'member_joined_channel' event
-app.event('member_joined_channel', async ({ event, client }) => {
+// Listen for the 'team_join' event
+app.event('team_join', async ({ event, client }) => {
   try {
     // Send a welcome message to the user who joined
+    const channelID = "C0726G044KZ"; // Replace with your general channel ID
     await client.chat.postMessage({
-      channel: event.channel,
-      text: `Welcome <@${event.user}>!`,
+      channel: channelID,
       blocks: [
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `Welcome <@${event.user}>!`
+            text: `Welcome <@${event.user.id}>, we are happy to have you. Check out our #onboarding to get started.`
           }
         }
       ]
