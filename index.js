@@ -15,6 +15,8 @@ app.event('team_join', async ({ event, client }) => {
   try {
     // Send a welcome message to the user who joined
     const channelID = "C0726G044KZ"; // Replace with your general channel ID
+    const onboardingChannelID = "C074U896F0E"; // Replace with your onboarding channel ID
+
     await client.chat.postMessage({
       channel: channelID,
       blocks: [
@@ -27,6 +29,20 @@ app.event('team_join', async ({ event, client }) => {
         }
       ]
     });
+
+    // Send an automated message to the onboarding channel
+    await client.chat.postMessage({
+        channel: onboardingChannelID,
+        blocks: [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: `Hello <@${event.user.id}>, please review the information in this channel to get started with our workspace. If you have any questions, feel free to ask here or in the general channel.`
+            }
+          }
+        ]
+      });
   } catch (error) {
     console.error(error);
   }
