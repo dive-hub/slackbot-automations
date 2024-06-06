@@ -15,3 +15,4 @@
 - node index.js
 
 App socket mode=True
+Watch how it works here https://youtu.be/Gyj2Ego2VgM
