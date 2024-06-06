@@ -10,9 +10,9 @@ node js latest version
 slack app
 
 # How to run locally:
->> git clone repo-link
->> npm install
->> node index.js
+git clone repo-link
+npm install
+node index.js
 
-## App use bolt
-## App socket mode=True
+App uses bolt javascript
+App socket mode=True
