@@ -5,14 +5,13 @@
 2. Posts onboarding message to guide new workspace member
 3. Posts anniversery message to all users in the workspace
 
-## Required:
-node js latest version
-slack app
+# Required:
+1. node js latest version
+2. slack app
 
 # How to run locally:
-git clone repo-link
-npm install
-node index.js
+- git clone repo-link
+- npm install
+- node index.js
 
-App uses bolt javascript
 App socket mode=True
